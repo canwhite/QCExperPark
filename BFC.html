@@ -1,0 +1,146 @@
+<!-- 
+一、常见定位方案
+1.普通流：从上到下
+2.浮动
+3.绝对定位
+
+
+二、BFC是什么呢?
+BFC即Block Formatting Contexts（块级格式化上下文），属于普通流
+
+
+三、触发BFC
+
+只要元素满足下面任一条件即可触发BFC特性
+1.body根元素
+2.浮动元素: float除了none以外的值
+3.绝对定位元素: position(absolute、fixed)
+4.display ： display为inline-block、table-cells、flex
+5.overflow除了visible以外的值(hidden、auto、scroll)
+
+
+
+
+四、触发BFC的作用
+
+
+
+1.同一个BFC下外边距会发生重叠（这个算是BFC的特性，不算BFC解决的问题）
+
+
+
+
+2.BFC可以清除浮动
+浮动的元素会脱离普通文档流，容器内元素浮动，脱离了文档流，会导致容器的高度消失
+这时候可以使用overflow:hidden
+
+
+3.BFC可以阻止元素被浮动元素覆盖
+
+
+
+
+
+-->
+
+
+
+
+
+
+<html>
+
+<head>
+<title>html基础</title>
+<style type="text/css">
+
+/* div{
+    width: 100px;
+    height: 100px;
+    background: lightblue;
+    margin: 100px;
+
+} */
+
+p{
+    width: 100px;
+    height: 100px;
+    background: lightblue;
+    margin: 100px;
+
+}
+
+
+.container{
+    overflow: hidden;
+}
+
+</style>
+
+
+
+
+
+
+</head>
+
+<body>  
+    <!-- 
+        特性一：同一个BFC下外边距会发生重叠
+        两个div在body触发的BFC容器里边上下间的外间距会重叠，显示一个100px
+
+    -->
+    <!-- <div></div>
+    <div></div> -->
+
+
+    <!-- 如果要解决特性一引起的情况，可以把两个div都触发成为BFC，然后在内部分别给
+    p设置上下边距就可以了
+    
+    -->
+    <div class="container">
+        <p></p>
+    </div>
+    <div class="container">
+        <p></p>
+    </div>
+
+
+
+
+    <!--
+        特性二：清除浮动，这个是主要作用
+        可以观察到前者脱离了文档流，后者在文档流中
+    -->
+    <div style="border: 1px solid red; width:100%"> 
+        <p style="float:left"></p>
+    </div>
+
+    <div style="border: 1px solid red; width:100%;overflow: hidden;"> 
+        <p style="float:left"></p>
+    </div>
+
+    <!-- 
+        特性三：阻止元素被浮动元素覆盖
+        看下触发BFC的前后区别
+
+    -->
+    <div style="background: lightblue;width: 100px;height: 100px;float: left;">
+        我是一个左浮动的元素 
+    </div>
+    <div style="background: #eee;width: 200px;height: 200px;
+        overflow: hidden;
+    ">
+        我是一个没有设置浮动，也没有触发BFC的元素
+        我将要被左浮动元素覆盖，我的宽是200，高是200,背景色是#eee 
+        触发BFC之后就没有问题了   
+    </div>
+
+
+
+
+
+
+</body>
+
+</html>
