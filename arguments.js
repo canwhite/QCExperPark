@@ -1,5 +1,6 @@
 function test() {
     var s = "";
+    //arguments本身是一个数组
     for (var i = 0; i < arguments.length; i++) {
         s += arguments[i] + ",";
     }
