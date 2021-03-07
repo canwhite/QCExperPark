@@ -10,5 +10,14 @@
   "license": "ISC",
   "dependencies": {
     "tapable": "^2.1.1"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/canwhite/QCExperPark.git"
+  },
+  "keywords": [],
+  "bugs": {
+    "url": "https://github.com/canwhite/QCExperPark/issues"
+  },
+  "homepage": "https://github.com/canwhite/QCExperPark#readme"
 }
