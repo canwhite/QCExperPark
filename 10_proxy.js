@@ -43,7 +43,7 @@ const handler = {
         }
         return Reflect.get(target,propKey);
     },
-
+    //get和set是常用的两个操作
     set(target,propKey,value,receiver){
         
         console.log('=====',propKey,value);
