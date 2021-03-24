@@ -41,4 +41,12 @@ method request-uri http-version
 ssl采用它采用了RC4、MD5以及RSA等加密算法
 ------------
 
+PS：ssl和ssh的区别
+
+
+
+
+
+
+
 */
