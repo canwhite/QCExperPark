@@ -1,0 +1,76 @@
+
+<html>
+
+    <head>
+        <script type="text/javascript">
+                
+            window.onload = ()=>{
+
+
+            //1.使用回调
+            var f2 = ()=>{
+                console.log('执行f2');
+            }
+            //传入函数，这函数并没有执行
+            //在需要执行的时候执行
+            var f1 = (callback)=>{  
+                setTimeout(()=>{
+                    callback();
+                },3000);
+
+            }
+            f1(f2);
+
+            }
+
+            
+            //2.使用promise链，或者async/await
+
+            new Promise((resolve,reject)=>{
+                setTimeout(()=>{
+                    resolve(1);
+                },1000);
+            })
+            .then((res)=>{
+                console.log(res);
+                //需要再返回一个Promise，以便执行.then
+                return new Promise((resolve,reject)=>{
+                    setTimeout(()=>{
+                        resolve(2);
+                    },1000);
+                })
+
+            }).then((res)=>{
+                console.log(res);
+
+            })
+
+
+
+            //3.事件监听
+            
+            const { port1, port2 } = new MessageChannel()
+            port1.onmessage = (e)=>{
+                console.log(e.data);
+            }
+            port2.postMessage("发送信息")
+
+            //4.使用发布/订阅 ，实际上是对前边方法的一种封装,最近我自己写的async2sync
+            //post: https://github.com/canwhite/async2sync
+
+
+        </script>
+
+
+    </head>
+    <body>
+        <div>javascript异步编程，请在控制台查看数据</div>
+    </body>
+
+
+
+
+</html>
+
+
+
