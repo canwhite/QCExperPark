@@ -9,7 +9,7 @@
 BFC即Block Formatting Contexts（块级格式化上下文），属于普通流
 
 
-三、触发BFC
+三、哪些元素属于BFC
 
 只要元素满足下面任一条件即可触发BFC特性
 1.body根元素
@@ -25,7 +25,9 @@ BFC即Block Formatting Contexts（块级格式化上下文），属于普通流
 
 
 
-1.同一个BFC下外边距会发生重叠（这个算是BFC的特性，不算BFC解决的问题）
+1.BFC的特性，同一个BFC下外边距会发生重叠
+针对这一特性我们的解决方案：
+我们可以把内容拆成两个BFC，这样就不会出现外边距重叠的情况了
 
 
 
@@ -33,6 +35,8 @@ BFC即Block Formatting Contexts（块级格式化上下文），属于普通流
 2.BFC可以清除浮动
 浮动的元素会脱离普通文档流，容器内元素浮动，脱离了文档流，会导致容器的高度消失
 这时候可以使用overflow:hidden
+
+
 
 
 3.BFC可以阻止元素被浮动元素覆盖
