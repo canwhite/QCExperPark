@@ -9,6 +9,7 @@
   "author": "qc",
   "license": "ISC",
   "dependencies": {
+    "rxjs": "^7.1.0",
     "tapable": "^2.1.1"
   },
   "repository": {
