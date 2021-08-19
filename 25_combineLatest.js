@@ -46,6 +46,7 @@ const subscribe = combined.subscribe(latestValues => {
 console.log("----that",that.i);
 
 //但是跳出subscription变量的作用域，我们的i实际上持有的是第一次值
+//其实根据作用域链也能理解，由内而外而不能由外而内
 console.log("----",i);
 
 
