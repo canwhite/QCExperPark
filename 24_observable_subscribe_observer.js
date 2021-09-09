@@ -21,7 +21,8 @@ _subscription = obs1.subscribe(obs2);
 obs1.next(1);
 
 
-//上述代码在1000ms时，执行了subscription.unsubscribe()，从而终止了该启动中的流，后续的输出都不会触发next函数，
+//上述代码在1000ms时，执行了subscription.unsubscribe()，从而终止了该启动中的流，
+//后续的输出都不会触发next函数，相当于关闭了next
 //但这并不意味着observable不存在了，该定时器的回调依旧会执行，只是因为流已经关闭，不会执行next的回调。
 //从这里看到上边的方法并不是为了终止
 
