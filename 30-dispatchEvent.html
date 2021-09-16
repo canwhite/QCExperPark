@@ -1,0 +1,55 @@
+
+<html>
+
+    <head>
+        <title>html基础</title>
+        <style type="text/css">
+
+        </style>
+        <script type="text/javascript">
+        /* 一些事件是由用户触发的，例如鼠标或键盘事件；
+            而其他事件常由 API 生成，例如指示动画已经完成运行的事件，
+            视频已被暂停等等。
+            事件也可以通过脚本代码触发，
+            例如对元素调用 HTMLElement.click() 方法，
+            或者定义一些自定义事件，
+            再使用 EventTarget.dispatchEvent() 
+            方法将自定义事件派发往指定的目标（target） */
+
+
+            //dispatch触发监听
+            window.addEventListener("test",e=>{
+                console.log("Event",e);
+            })
+            const e = new Event("test");
+            e.arguments = [1,2,3]
+            window.dispatchEvent(e)
+
+            // 支持History API
+            // pushState的时候并不触发，调用go的时候才触发
+            // event.state里边state备份也能拿到
+            history.pushState('#1', null, '#1');
+            history.pushState({ a: 1, b: 2 }, null, '#2');
+            history.pushState('#3', null, '#3');
+            window.onpopstate = function(event) {
+                console.log('location: ' + document.location);
+                console.log(event.state);
+            };
+            //另一种添加事件的方法
+            window.addEventListener('popstate', function(event) {
+                console.log('location: ' + document.location);
+                console.log(event.state);
+            });
+            history.go(-1)
+
+
+
+
+
+        </script>
+    </head>
+    <body>  
+
+    </body>
+
+</html>

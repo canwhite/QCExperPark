@@ -1,0 +1,34 @@
+
+<html>
+
+    <head>
+        <title>html基础</title>
+        <style type="text/css">
+
+        </style>
+        <script type="text/javascript">
+
+            // 支持History API
+            // pushState的时候并不触发，调用go的时候才触发
+            // event.state里边state备份也能拿到
+            history.pushState('#1', null, '#1');
+            history.pushState({ a: 1, b: 2 }, null, '#2');
+            history.pushState('#3', null, '#3');
+            window.onpopstate = function(event) {
+                console.log('location: ' + document.location);
+                console.log(event.state);
+            };
+            //另一种添加事件的方法
+            window.addEventListener('popstate', function(event) {
+                console.log('location: ' + document.location);
+                console.log(event.state);
+            });
+            history.go(-1)//触发popstate
+
+        </script>
+    </head>
+    <body>  
+
+    </body>
+
+</html>
