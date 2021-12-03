@@ -30,3 +30,31 @@ var g = exper.f.bind(obj);
 g(5,6);
 
 
+//那么连续作业会是一种什么情况呢？
+let o1 = {
+    a:"123",
+    say:function(){
+        console.log(this.a);
+    }
+    
+}
+let o2 = {
+    a:"456",
+    say:function(){
+        console.log(this.a);
+    }
+}
+let o3 = {
+    a:"789",
+    say:function(){
+        console.log(this.a);
+    }
+}
+
+o1.say.bind(o2).apply(o3);
+//456
+//先bind再apply猜猜最后输出的是啥？
+
+
+
+
