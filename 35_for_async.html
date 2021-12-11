@@ -1,0 +1,61 @@
+
+<html>
+
+    <head>
+        <script type="text/javascript">
+                
+            window.onload = ()=>{
+                let request1 = function(){
+                    return new Promise((resolve,reject)=>{
+                        setTimeout(()=>{
+                            resolve(1);
+                        },2000);    
+                    })
+                }
+                let  request2 =function(){
+                    return new Promise((resolve,reject)=>{
+                        setTimeout(()=>{
+                            reject(new Error("--"))
+                        },1000);   
+                    })
+                }
+                let  request3 =function(){
+                    return new Promise((resolve,reject)=>{
+                        setTimeout(()=>{
+                            resolve(3);
+                        },3000);   
+                    })
+                }
+
+                let arr = [request1,request2,request3];
+
+                async function LoopData(){
+
+                    for(let i =0; i<arr.length; i++){
+                        
+                        let data = await arr[i]();
+                        console.log("--data--",data);
+                    }
+                }
+
+                LoopData()
+
+
+
+
+            }
+
+        
+        </script>
+
+
+    </head>
+    <body>
+        <div>javascript异步编程，请在控制台查看数据</div>
+    </body>
+
+
+
+
+</html>
+
