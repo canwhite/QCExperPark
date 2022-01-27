@@ -42,7 +42,16 @@ asyncPool(5, [1000, 5000, 3000, 2000,1000,5000,5000,1000], timeout).then(res=>{
 }).catch(err=>{
     console.log("---err",err);
 });
-
+/* ---res [
+    { success: 1000 },
+    { success: 5000 },
+    { error: 3000 },  
+    { success: 2000 },
+    { success: 1000 },
+    { success: 5000 },
+    { success: 5000 },
+    { success: 1000 } 
+  ] */
 
 
 
