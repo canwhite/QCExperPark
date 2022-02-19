@@ -1,10 +1,12 @@
 /*
 基础使用：
-当然更多的时候proxy的set/get不是像下边一样做自己的本职工作的
-它们就是返回一个信号而已，例如返回一个bool值或者相应的id什么的
+
+Proxy通常和Reflect合作，Proxy用于代理，Reflect用于操作
+
 */
 console.log('============基础使用=============')
 var obj = {};
+
 var hdr = {
     get(target,propKey,receiver){
         return Reflect.get(target,propKey);
@@ -14,14 +16,37 @@ var hdr = {
         //有'这一步才会真正设置上值，设置之后两者都会有
         return Reflect.set(target,propKey,value);
     }
-
-
 }
 var pxy = new Proxy(obj,hdr);
 pxy.name = '456';
 console.log('-----',obj);
 console.log('-----',pxy.name);
 console.log('-----',obj.name);
+
+console.log("==========看下数组问题==========");
+//proxy数组的本质是一个对象，但是方法都可以用
+//proxy中的receiver是什么？
+//在 Proxy trap 的场景下，这个 receiver 永远指向 Proxy 本身或者继承它的对象。
+let arr = [1,2,3]
+let proxy = new Proxy(arr, {	
+   get: function (target, key, receiver) {
+       console.log('get的key为 ===>' + key);
+       return Reflect.get(target, key, receiver);
+   },
+   //set的时候第三个值是value，
+   set(target, key, value, receiver){
+       console.log('set的key为 ===>' + key, value);
+       return Reflect.set(target, key, value, receiver);
+   }
+})
+
+console.log("--arr--",proxy.length);
+
+// let arrin = [1.2].includes((item)=>proxy)
+// PS :可以和普通数组配合，把它当作普通数组就可以了
+let arrin = [1,2,4].filter((item)=>proxy.includes(item));
+console.log("arrin",arrin);
+
 
 
 console.log("================this指向问题=======================")
