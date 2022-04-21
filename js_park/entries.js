@@ -8,6 +8,8 @@ console.log(Object.values(obj));
 console.log(Object.entries(obj));
  */
 //进行排序
+//Object.entries(obj) 得到的是一个二维数组
+//内部的单个item是个数组，第一个元素对应key，第二个元素对应value
 let sorted = Object.entries(obj).sort((a,b)=>{
     //拿值做比较
     return b[1]-a[1]
