@@ -2,6 +2,11 @@
 # yarn lockfile v1
 
 
+moment@^2.29.3:
+  version "2.29.3"
+  resolved "https://registry.npmmirror.com/moment/-/moment-2.29.3.tgz#edd47411c322413999f7a5940d526de183c031f3"
+  integrity sha512-c6YRvhEo//6T2Jz/vVtYzqBzwvPT95JBQ+smCytzf7c50oMZRsR/a4w88aD34I+/QVSfnoAnSBFPJHItlOMJVw==
+
 rxjs@^7.1.0:
   version "7.1.0"
   resolved "https://registry.nlark.com/rxjs/download/rxjs-7.1.0.tgz?cache=0&sync_timestamp=1621619504812&other_urls=https%3A%2F%2Fregistry.nlark.com%2Frxjs%2Fdownload%2Frxjs-7.1.0.tgz#94202d27b19305ef7b1a4f330277b2065df7039e"
