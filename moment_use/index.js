@@ -16,9 +16,9 @@ console.log("time1",d2);
 
 
 //diff
-let m1 = moment('2018-08-14 11:00:00')
+let m1 = moment('2018-08-14 10:00:00')
 let m2 = moment('2018-08-14 11:00:50');
 
 // 2018-08-14 11:00:01 - 2018-08-14 11:00:00 = 1
 // 注意这里用单数
-console.log(m2.diff(m1, 'second')) 
+console.log(m2.diff(m1, 'hour')) 
