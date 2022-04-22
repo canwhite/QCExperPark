@@ -15,6 +15,8 @@ let sorted = Object.entries(obj).sort((a,b)=>{
     return b[1]-a[1]
 })
 console.log(sorted);
+//slice对数组切片，split对字符串切片
+//slice是起始位，split是根据标识符切分
 let top =  sorted.slice(0,1);
 //然后我们取到key值
 let topkey =  top.map(item=>item[0]);
